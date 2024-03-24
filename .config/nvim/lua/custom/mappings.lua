@@ -16,4 +16,21 @@ M.dap_python = {
     }
   }
 }
+
+M.dap_ui = {
+  plugin=true,
+  n={
+    ["<leader>dt"] = {
+      function ()
+        require("dapui").toggle()
+      end
+    }
+  }
+}
+
+M.gitsings = {
+  n = {
+    ["<leader>gp"] = {"<cmd> Gitsigns preview_hunk <CR>"}
+  }
+}
 return M
