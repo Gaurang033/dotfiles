@@ -81,6 +81,33 @@ local plugins = {
       require("core.utils").load_mappings("gitsigns")
       require("gitsigns").setup()
     end
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false
+  },
+ {
+  "catppuccin/nvim",
+  lazy=false,
+  name="catppuccine",
+  priority = 1000,
+  config = function ()
+    vim.cmd.colorscheme  "catppuccin"
+  end
+},
+  {
+   "nvim-neo-tree/neo-tree.nvim",
+    lazy = false,
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+    config = function ()
+      vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
+    end
   }
 }
 return plugins
