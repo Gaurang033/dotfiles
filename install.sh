@@ -10,4 +10,5 @@ brew tap homebrew/cask-fonts
 brew install --cask homebrew/cask-fonts/font-0xproto-nerd-font
 brew install ripgrep
 brew install lazygit
+qit clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
 stow --adopt .

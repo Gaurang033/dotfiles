@@ -33,4 +33,15 @@ M.gitsings = {
     ["<leader>gp"] = {"<cmd> Gitsigns preview_hunk <CR>"}
   }
 }
+
+M.neogit = {
+  n = {
+    ["<leader>gn"] = {
+      function ()
+        require("neogit").open({kind="split"})
+      end
+    }
+  }
+}
+
 return M
