@@ -30,7 +30,7 @@ M.dap_ui = {
 
 M.gitsings = {
   n = {
-    ["<leader>gp"] = {"<cmd> Gitsigns preview_hunk <CR>"}
+    ["<leader>gp"] = {"<cmd> Gitsigns preview_hunk <CR>", "git preview hunk"}
   }
 }
 
@@ -39,9 +39,26 @@ M.neogit = {
     ["<leader>gn"] = {
       function ()
         require("neogit").open({kind="split"})
-      end
+      end,
+      "open neogit menu"
     }
   }
 }
+
+M.fugitive = {
+  n={
+    ["<leader>gb"] = {"<cmd> Git blame <CR>", "git balme"}
+  }
+}
+
+M.telescope = {
+  plugin = true,
+
+  n = {
+    ["<leader>fcm"] = { "<cmd> Telescope git_commits <CR>", "Find git commit message in telesccope" },
+    ["<leader>fgb"] = { "<cmd> Telescope git_branches <CR>", "Find git branches" },
+  },
+}
+
 
 return M

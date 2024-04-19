@@ -22,7 +22,8 @@ local plugins = {
       "ibhagwan/fzf-lua",              -- optional
   },
     config = true,
-    event = "VeryLazy"
+    cmd="Neogit"
+    -- event = "VeryLazy"
   }
 
 }
