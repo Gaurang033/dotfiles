@@ -55,8 +55,8 @@ M.telescope = {
   plugin = true,
 
   n = {
-    ["<leader>fcm"] = { "<cmd> Telescope git_commits <CR>", "Find git commit message in telesccope" },
-    ["<leader>fgb"] = { "<cmd> Telescope git_branches <CR>", "Find git branches" },
+    ["<leader>fcm"] = { "<cmd> Telescope git_commits <CR>", "Find git commit message in telesccope", {noremap=true} },
+    ["<leader>fgb"] = { "<cmd> Telescope git_branches <CR>", "Find git branches", {noremap=true}},
   },
 }
 

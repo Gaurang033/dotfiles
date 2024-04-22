@@ -9,8 +9,9 @@ local plugins = {
   {
   -- for git,  support command like :Git Diff, :Git Log 
     "tpope/vim-fugitive",
-    lazy = false
-  },
+    -- lazy = false,
+    cmd="Git"
+   },
 
   {
   "NeogitOrg/neogit",
