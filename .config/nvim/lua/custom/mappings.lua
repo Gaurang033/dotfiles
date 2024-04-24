@@ -24,7 +24,9 @@ M.dap_ui = {
       function ()
         require("dapui").toggle()
       end
-    }
+    },
+    ["<leader>ds"] = {"<CMD>lua require'dap'.stop()<CR>", "stop debug"},
+    ["<leader>dn"] = {"<CMD>lua require'dap'.stop()<CR>", "continue debug run"},
   }
 }
 
