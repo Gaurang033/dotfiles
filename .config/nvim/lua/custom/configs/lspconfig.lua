@@ -8,21 +8,28 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"python"},
+  filetypes = { "python" },
 })
 
 lspconfig.terraformls.setup({
   on_attach = on_attach,
-  capabilities = capabilities, 
-  flags = {debounce_text_changes = 150},
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 150 },
 })
 
 lspconfig.lua_ls.setup({
-  filetypes = {"lua"}
+  filetypes = { "lua" },
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' } -- to disable global vim error
+      }
+    }
+  }
 })
 
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars"},
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars", "*.py", "*.lua" },
   callback = function()
     vim.lsp.buf.format()
   end
