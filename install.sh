@@ -14,4 +14,5 @@ brew tap homebrew/cask-fonts
 brew install ripgrep
 brew install lazygit
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
-stow --adopt .
+stow --adopt . -t /Users/$USER
+

@@ -1,3 +1,2 @@
 alias co_stop_all_connectors='for name in `confluent connect cluster list | cut -d "|" -f1 | awk NF`; do confluent connect cluster pause $name; done'
-alias ls='exa' 
-alias ll='ls -l'
+alias ll='ls -ltr'
