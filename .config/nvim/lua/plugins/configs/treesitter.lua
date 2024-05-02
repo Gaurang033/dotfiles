@@ -1,5 +1,5 @@
 local options = {
-  ensure_installed = { "lua", "vim", "vimdoc", "terraform", "hcl" },
+  ensure_installed = { "lua", "vim", "vimdoc", "terraform", "hcl", "python" },
 
   highlight = {
     enable = true,

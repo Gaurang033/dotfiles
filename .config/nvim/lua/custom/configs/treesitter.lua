@@ -1,4 +1,4 @@
-local config = require("plugins.configs.lspconfig")
+local config = require("plugins.configs.treesitter")
 
 config.setup {
   ensure_installed = { "lua", "vim", "vimdoc", "terraform", "hcl", "python" },
@@ -9,4 +9,3 @@ config.setup {
   },
   indent = { enable = true },
 }
-

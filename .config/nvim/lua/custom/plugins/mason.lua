@@ -1,16 +1,19 @@
+-- Help you download binaries required for formatter, ls
+
 return {
   "williamboman/mason.nvim",
-    opts={
-      ensure_installed = {
-      "lua_ls",
+  opts = {
+    ensure_installed = {
       "pyright",
-        "mypy",
-        "ruff",
-        "black",
-        "debugpy",
-        "terraform-ls",
-      "lua-language-server"
+      "mypy",
+      "ruff",
+      "black",
+      "debugpy",
+      "terraform-ls",
+      "lua-language-server",
+      "fixjson",
+      "shellcheck",
+      "prettier"
     },
-    },
+  },
 }
-
