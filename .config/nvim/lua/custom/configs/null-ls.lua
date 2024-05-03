@@ -1,23 +1,24 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local augroup = vim.api.nvim_create_augroup("lspformatting", {})
 local null_ls = require("null-ls")
 
 local opts = {
   sources = {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.diagnostics.mypy,
+    -- null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.formatting.terraform_fmt,
     null_ls.builtins.diagnostics.terraform_validate,
-    -- null_ls.builtins.diagnostics.shellcheck.with({ filetypes = { "sh", "bash", "zsh" } }),
+    null_ls.builtins.formatting.shellharden,
     null_ls.builtins.formatting.prettier.with({ filetypes = { "json" } }),
   },
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if client.supports_method("textdocument/formatting") then
       vim.api.nvim_clear_autocmds({
         group = augroup,
         buffer = bufnr
       })
-      vim.api.nvim_create_autocmd("BufWritePre", {
+      vim.api.nvim_create_autocmd("bufwritepre", {
         group = augroup,
         buffer = bufnr,
         callback = function()

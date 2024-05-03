@@ -5,14 +5,15 @@ return {
   opts = {
     ensure_installed = {
       "pyright",
-      "mypy",
+      -- "mypy",
+      "flake8",
       "ruff",
       "black",
       "debugpy",
       "terraform-ls",
       "lua-language-server",
       "fixjson",
-      "shellcheck",
+      "shellharden",
       "prettier"
     },
   },
