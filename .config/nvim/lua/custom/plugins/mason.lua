@@ -6,7 +6,7 @@ return {
     ensure_installed = {
       "pyright",
       -- "mypy",
-      "flake8",
+      "pylint",
       "ruff",
       "black",
       "debugpy",
@@ -14,7 +14,7 @@ return {
       "lua-language-server",
       "fixjson",
       "shellharden",
-      "prettier"
+      "prettier",
     },
   },
 }
