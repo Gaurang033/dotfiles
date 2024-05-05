@@ -17,6 +17,8 @@ local opts = {
       extra_args = { "--disable=C0114,C0115,C0116" },
     },
     null_ls.builtins.diagnostics.terraform_validate,
+    null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.code_actions.refactoring,
   },
   on_attach = function(client, bufnr)
     if client.supports_method "textdocument/formatting" then
