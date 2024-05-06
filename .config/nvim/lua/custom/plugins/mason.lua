@@ -6,8 +6,8 @@ return {
     ensure_installed = {
       "pyright",
       -- "mypy",
-      "pylint",
-      "ruff",
+      -- "pylint",
+      -- "ruff",
       "black",
       "debugpy",
       "terraform-ls",
@@ -15,6 +15,8 @@ return {
       "fixjson",
       "shellharden",
       "prettier",
+      "jedi-language-server", -- for python
+      "ruff-lsp",
     },
   },
 }
