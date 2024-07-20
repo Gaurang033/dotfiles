@@ -1,2 +1,5 @@
 alias co_stop_all_connectors='for name in `confluent connect cluster list | cut -d "|" -f1 | awk NF`; do confluent connect cluster pause $name; done'
 alias ll='ls -ltr'
+mp3 () {
+    yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o '~/Downloads/Music/new/%(title)s.%(ext)s' "$1"
+}

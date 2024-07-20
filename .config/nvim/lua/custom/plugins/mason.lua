@@ -15,6 +15,8 @@ return {
       "fixjson",
       "shellharden",
       "prettier",
+      "sqlfluff",
+      "hclfmt",
     },
   },
 }

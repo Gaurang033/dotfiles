@@ -125,3 +125,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export PATH="$PYENV_ROOT/shims:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=$HOME/brew/bin:/usr/local/go/bin:~/go/bin:$PATH
+
+export BITBUCKET_PASSWORD=ATBBt25pYvnr2FSP5SU7vjETqr6wCFD56D9A
+export BITBUCKET_USER=gaurang_shah
+
+export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/keys/cldeng.json
+gcloud auth activate-service-account sa-cldeng-cloudbuild@econ-lz-test.iam.gserviceaccount.com --key-file=/Users/fki/Documents/keys/cldeng.json

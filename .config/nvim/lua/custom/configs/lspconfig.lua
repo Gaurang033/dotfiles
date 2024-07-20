@@ -29,7 +29,7 @@ lspconfig.lua_ls.setup {
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.tf", "*.tfvars", "*.py", "*.lua", "*.json" },
+  pattern = { "*.tf", "*.tfvars", "*.py", "*.lua", "*.json", "*.hcl" },
   callback = function()
     vim.lsp.buf.format()
   end,
