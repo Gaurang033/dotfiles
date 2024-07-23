@@ -8,3 +8,7 @@ opt.number = true
 opt.relativenumber = true
 -- vim.opt.signcolumn = "number"
 opt.statuscolumn = "%s %l %r "
+
+vim.cmd [[
+  au FileType hcl setlocal commentstring=#\ %s
+]]
