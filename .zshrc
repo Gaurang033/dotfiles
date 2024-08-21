@@ -132,3 +132,9 @@ export BITBUCKET_USER=gaurang_shah
 
 export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/keys/cldeng.json
 gcloud auth activate-service-account sa-cldeng-cloudbuild@econ-lz-test.iam.gserviceaccount.com --key-file=/Users/fki/Documents/keys/cldeng.json
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/fki/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/fki/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/fki/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/fki/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
