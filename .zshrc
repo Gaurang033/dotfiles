@@ -118,6 +118,7 @@ list_users(){
 az ad group member list --group $1  --query "[].{mail:mail}" -o table
 }
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
