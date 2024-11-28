@@ -4,3 +4,6 @@ mp3 () {
     yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o '~/Downloads/songs/%(title)s.%(ext)s' "$1"
 }
 alias undo_ammend='git reset --soft HEAD@{1}'
+grb(){
+    git checkout master;git pull; checkout $1; git rebase master
+}

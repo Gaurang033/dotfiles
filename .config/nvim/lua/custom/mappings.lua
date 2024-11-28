@@ -17,6 +17,19 @@ M.dap_python = {
   },
 }
 
+-- for go debug
+M.dap_go = {
+  plugin = true,
+  n = {
+    ["<leader>dgt"] = {
+      function()
+        require("dap-go").debug_test()
+      end,
+      "debug go test",
+    },
+  },
+}
+
 M.dap_ui = {
   plugin = true,
   n = {
@@ -24,6 +37,7 @@ M.dap_ui = {
       function()
         require("dapui").toggle()
       end,
+      "Toogle Debug Window",
     },
     ["<leader>ds"] = { "<CMD>lua require'dap'.stop()<CR>", "stop debug" },
     ["<leader>dn"] = { "<CMD>lua require'dap'.stop()<CR>", "continue debug run" },

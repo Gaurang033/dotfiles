@@ -17,6 +17,11 @@ return {
       "prettier",
       "sqlfluff",
       "hclfmt",
+      "gopls",
+      "gofumpt",
+      "goimports-reviser",
+      "golines",
+      "delve",
     },
   },
 }
