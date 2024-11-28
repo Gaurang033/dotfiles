@@ -21,9 +21,15 @@ require("noice").setup {
     inc_rename = false,           -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = false,       -- add a border to hover docs and signature help
   },
-  routes = {
+  routes = {                      -- to fix macro recoding
     {
       view = "cmdline",
+      filter = {
+        event = "msg_showmode",
+      },
+    },
+    {
+      view = "dap",
       filter = {
         event = "msg_showmode",
       },

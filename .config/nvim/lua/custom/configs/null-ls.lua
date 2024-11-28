@@ -14,6 +14,10 @@ local opts = {
     null_ls.builtins.formatting.shellharden,
     null_ls.builtins.formatting.prettier.with { filetypes = { "json", "yaml" } },
     null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.gofumpt,
+    null_ls.builtins.formatting.goimports_reviser,
+    null_ls.builtins.formatting.golines,
+
     -- null_ls.builtins.formatting.hclfmt,
     null_ls.builtins.diagnostics.pylint.with {
       prefer_local = ".venv/bin",
