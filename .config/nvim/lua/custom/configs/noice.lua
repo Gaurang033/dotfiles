@@ -1,4 +1,5 @@
 require("noice").setup {
+  debug = true,
   lsp = {
     hover = {
       enabled = false,
@@ -25,14 +26,15 @@ require("noice").setup {
     {
       view = "cmdline",
       filter = {
-        event = "msg_showmode",
+        event = { "msg_showmode" },
       },
     },
-    {
-      view = "dap",
-      filter = {
-        event = "msg_showmode",
-      },
-    },
+    -- {
+    --   view = "cmdline",
+    --   filter = {
+    --     event = { "msg_show" },
+    --     mode = "rm",
+    --   },
+    -- },
   },
 }

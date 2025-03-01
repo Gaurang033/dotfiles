@@ -22,6 +22,9 @@ return {
       "goimports-reviser",
       "golines",
       "delve",
+      "typescript-language-server",
+      "js-debug-adapter", -- debugger for nodejs
+      -- "eslint-lsp",
     },
   },
 }

@@ -139,3 +139,9 @@ if [ -f '/Users/fki/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fki/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/fki/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(zoxide init zsh)"

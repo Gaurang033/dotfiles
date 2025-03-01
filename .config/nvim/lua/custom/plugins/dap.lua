@@ -3,6 +3,8 @@ local plugins = {
     "mfussenegger/nvim-dap",
     config = function(_, _)
       require("core.utils").load_mappings "dap"
+      require("core.utils").load_mappings "dap_ui"
+      require "custom.configs.js_dap"
     end,
   },
   {

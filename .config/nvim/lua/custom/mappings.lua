@@ -17,7 +17,7 @@ M.dap_python = {
   },
 }
 
--- for go debug
+-- for go debu
 M.dap_go = {
   plugin = true,
   n = {
@@ -69,7 +69,6 @@ M.fugitive = {
 
 M.telescope = {
   plugin = true,
-
   n = {
     ["<leader>fcm"] = {
       "<cmd> Telescope git_commits <CR>",
@@ -77,6 +76,13 @@ M.telescope = {
       { noremap = true },
     },
     ["<leader>fgb"] = { "<cmd> Telescope git_branches <CR>", "Find git branches", { noremap = true } },
+  },
+}
+
+M.obsidian = {
+  n = {
+    ["<leader>os"] = { "<CMD> ObsidianSearch <CR>", "search obsidan notes", { noremp = true } },
+    ["<leader>on"] = { "<CMD> ObsidianNew <CR>", "search obsidan notes", { noremp = true } },
   },
 }
 

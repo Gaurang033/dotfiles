@@ -6,6 +6,16 @@ local util = require "lspconfig/util"
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestion = true,
+    },
+  },
+}
+
 lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -47,7 +57,7 @@ lspconfig.gopls.setup {
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.tf", "*.tfvars", "*.py", "*.lua", "*.json", "*.hcl", "*.go", "*.json" },
+  pattern = { "*.tf", "*.tfvars", "*.py", "*.lua", "*.json", "*.hcl", "*.go", "*.json", "*.js" },
   callback = function()
     vim.lsp.buf.format()
   end,
