@@ -1,5 +1,5 @@
 require("noice").setup {
-  debug = true,
+  -- debug = true,
   lsp = {
     hover = {
       enabled = false,
