@@ -14,6 +14,8 @@ brew tap homebrew/cask-fonts
 brew install ripgrep
 brew install lazygit
 bew install zoxide 
+brew install ripgrep
+brew install --cask ghostty
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
 stow --adopt . -t /Users/$USER
 # echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc

@@ -6,7 +6,7 @@ local util = require "lspconfig/util"
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
