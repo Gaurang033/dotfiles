@@ -1,12 +1,13 @@
 return {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        terraformls = {},
-      },
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      terraformls = {},
     },
-    config = function ()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end
-  }
+  },
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    require "plugins.configs.lspconfig"
+    require "custom.configs.lspconfig"
+  end
+}
