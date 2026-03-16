@@ -1,12 +1,12 @@
 local config = require "plugins.configs.lspconfig"
 local on_attach = config.on_attach
 local capabilities = config.capabilities
-local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
+local util = require "lspconfig.util"
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.ts_ls.setup {
+-- TypeScript
+vim.lsp.config("ts_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
@@ -14,32 +14,40 @@ lspconfig.ts_ls.setup {
       disableSuggestion = true,
     },
   },
-}
+})
+vim.lsp.enable("ts_ls")
 
-lspconfig.pyright.setup {
+-- Python
+vim.lsp.config("pyright", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "python" },
-}
+})
+vim.lsp.enable("pyright")
 
-lspconfig.terraformls.setup {
+-- Terraform
+vim.lsp.config("terraformls", {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 150 },
-}
+})
+vim.lsp.enable("terraformls")
 
-lspconfig.lua_ls.setup {
+-- Lua
+vim.lsp.config("lua_ls", {
   filetypes = { "lua" },
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" }, -- to disable global vim error
+        globals = { "vim" },
       },
     },
   },
-}
+})
+vim.lsp.enable("lua_ls")
 
-lspconfig.gopls.setup {
+-- Go
+vim.lsp.config("gopls", {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "gopls" },
@@ -54,8 +62,10 @@ lspconfig.gopls.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable("gopls")
 
+-- Auto format on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.tf", "*.tfvars", "*.py", "*.lua", "*.json", "*.hcl", "*.go", "*.json", "*.js" },
   callback = function()

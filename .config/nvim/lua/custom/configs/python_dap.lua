@@ -1,34 +1,68 @@
-local dap = require "dap"
+local dap = require("dap")
+local dap_python = require("dap-python")
 
+-- Utility function to find correct Python interpreter
+local function get_python_path()
+  local cwd = vim.fn.getcwd()
+
+  -- check for .venv in project root
+  local venv_path = cwd .. "/.venv/bin/python"
+  if vim.fn.executable(venv_path) == 1 then
+    return venv_path
+  end
+
+  -- fallback to virtualenv environment variable
+  local venv_env = os.getenv("VIRTUAL_ENV")
+  if venv_env then
+    return venv_env .. "/bin/python"
+  end
+
+  -- fallback to pyenv/system python
+  return vim.fn.exepath("python")
+end
+
+-- Setup the Python DAP adapter
 dap.adapters.python = {
   type = "executable",
-  command = os.getenv "HOME" .. "/.virtualenvs/debugpy/bin/python",
-  -- command = '/Users/fki/brew/bin/python3'
+  command = get_python_path(),
   args = { "-m", "debugpy.adapter" },
 }
 
+-- Setup Python configurations
 dap.configurations.python = {
   {
-    -- The first three options are required by nvim-dap
-    type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+    type = "python",
     request = "launch",
     name = "Launch file",
-
-    -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
-    program = "${file}", -- This configuration will launch the current file if used.
-    pythonPath = function()
-      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-      local vdir = os.getenv "VIRTUAL_ENV"
-      if vdir then
-        print "$vdir"
-        return vdir .. "/bin/python"
-      else
-        -- return "/usr/bin/python3"
-        return "/Users/fki/brew/bin/python3"
-      end
-    end,
+    program = "${file}",
+    cwd = "${fileDirname}",
+    pythonPath = get_python_path,
   },
 }
+
+-- Setup dap-python with pytest
+dap_python.setup(get_python_path())
+dap_python.test_runner = "pytest"
+
+-- Load custom keymaps for Python DAP
+require("core.utils").load_mappings("dap_python")
+
+-- Sign definitions for breakpoints
+vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
+-- Highlight for stopped debugger
+vim.api.nvim_set_hl(0, "DapStopped", { bg = "#666666", bold = true })
+
+
+-- Optional: auto open dap-ui when debugging starts
+local dapui = require("dapui")
+dapui.setup()
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
